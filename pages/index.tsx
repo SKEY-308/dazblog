@@ -2,21 +2,22 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 // import Image from 'next/image'
 import { PostCard, PostWidget, Categories } from '../components';
+import { getPosts } from '../services';
 
 
-const posts = [
-  {
-    title: 'React Testing',
-    excerpt: 'Learn React Testing'
-  },
-  {
-    title: 'React with Tailwind',
-    excerpt: 'Learn React with Tailwind'
-  }
-];
+// const posts = [
+//   {
+//     title: 'React Testing',
+//     excerpt: 'Learn React Testing'
+//   },
+//   {
+//     title: 'React with Tailwind',
+//     excerpt: 'Learn React with Tailwind'
+//   }
+// ];
 
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ posts }) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
 
           {posts.map((post, index) => (
 
-            <PostCard key={index} post={post} />
+            <PostCard key={index} post={post.node} />
 
           ))}
 
@@ -47,6 +48,14 @@ const Home: NextPage = () => {
 
     </div>
   )
+}
+
+// Fetch data at build time
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+  return {
+    props: { posts },
+  };
 }
 
 export default Home
