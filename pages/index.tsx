@@ -4,13 +4,13 @@ import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="container mx-auto px-10 mb-8">
       <Head>
-        <title>Create Next App</title>
+        <title>DazBlog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      {/* <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
@@ -78,7 +78,7 @@ const Home: NextPage = () => {
           Powered by{' '}
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
