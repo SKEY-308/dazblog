@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Key } from 'react';
 // import Image from 'next/image'
 import { PostCard, PostWidget, Categories } from '../components';
 import { getPosts } from '../services';
@@ -29,7 +30,7 @@ const Home: NextPage = ({ posts }) => {
 
         <div className="lg:col-span-8 col-span-1">
 
-          {posts.map((post, index) => (
+          {posts.map((post: { node: any; }, index: Key | null | undefined) => (
 
             <PostCard key={index} post={post.node} />
 
