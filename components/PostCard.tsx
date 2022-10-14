@@ -1,10 +1,16 @@
 import React from 'react'
 import moment from 'moment'
 import Link from 'next/link'
+import { NextPage } from 'next/types';
 
-const PostCard = ({ post }) => {
 
-    console.log(post)
+interface Props {
+    post: any;
+}
+
+const PostCard: NextPage<Props> = ({ post }) => {
+
+    // console.log(post)
 
     return (
         <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
