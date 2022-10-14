@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next/types'
 import Head from 'next/head'
 import { Key } from 'react';
 import { PostCard, PostWidget, Categories } from '../components';
@@ -19,7 +19,7 @@ import { getPosts } from '../services';
 
 
 interface Props {
-  posts: any
+  posts: []
 }
 
 
