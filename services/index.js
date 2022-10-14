@@ -36,20 +36,20 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
-// export const getCategories = async () => {
-//   const query = gql`
-//     query GetGategories {
-//         categories {
-//           name
-//           slug
-//         }
-//     }
-//   `;
+export const getCategories = async () => {
+  const query = gql`
+    query GetGategories {
+        categories {
+          name
+          slug
+        }
+    }
+  `;
 
-//   const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query);
 
-//   return result.categories;
-// };
+  return result.categories;
+};
 
 // export const getPostDetails = async (slug) => {
 //   const query = gql`
