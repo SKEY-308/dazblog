@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
         <div className="lg:col-span-8 col-span-1">
 
-          {posts.map((post: { node: any; }, index: Key | null | undefined) => (
+          {posts.map((post: { node: {} }, index: Key | null | undefined) => (
 
             <PostCard key={index} post={post.node} />
 
