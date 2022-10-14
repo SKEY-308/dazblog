@@ -1,4 +1,4 @@
-import type { NextPage } from 'next/types'
+// import type { NextPage } from 'next/types'
 import Head from 'next/head'
 import { Key } from 'react';
 import { PostCard, PostWidget, Categories } from '../components';
@@ -18,12 +18,9 @@ import { getPosts } from '../services';
 
 
 
-interface Props {
-  posts: []
-}
 
 
-const Home: NextPage<Props> = ({ posts }) => {
+const Home = ({ posts }) => {
 
   console.log(posts)
 
@@ -38,11 +35,11 @@ const Home: NextPage<Props> = ({ posts }) => {
 
         <div className="lg:col-span-8 col-span-1">
 
-          {posts.map((post: { node: {} }, index: Key | null | undefined) => (
+          { posts.map((post, index) => (
 
-            <PostCard key={index} post={post.node} />
+            <PostCard key={ index } post={ post.node } />
 
-          ))}
+          )) }
 
         </div>
 

@@ -24,7 +24,15 @@
     "**/*.ts",
     "**/*.tsx",
     "services/index.js",
-    "services/index.js"
+    "services/index.js",
+    "components/PostCard.jsx",
+    "pages/index.js",
+    "components/index.js",
+    "components/Categories.jsx",
+    "components/Header.jsx",
+    "components/Layout.jsx",
+    "components/PostWidget.jsx",
+    "pages/_app.js"
   ],
   "exclude": [
     "node_modules"
