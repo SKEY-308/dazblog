@@ -12,30 +12,10 @@ export default function CommentsForm({ slug }) {
     const emailEl = useRef();
     const storeDataEl = useRef();
 
-    // useEffect(() => {
-    //     setLocalStorage(window.localStorage);
-    //     const initalFormData = {
-    //         name: window.localStorage.getItem('name'),
-    //         email: window.localStorage.getItem('email'),
-    //         storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
-    //     };
-    //     setFormData(initalFormData);
-    // }, []);
-
-    // const onInputChange = (e) => {
-    //     const { target } = e;
-    //     if (target.type === 'checkbox') {
-    //         setFormData((prevState) => ({
-    //             ...prevState,
-    //             [target.name]: target.checked,
-    //         }));
-    //     } else {
-    //         setFormData((prevState) => ({
-    //             ...prevState,
-    //             [target.name]: target.value,
-    //         }));
-    //     }
-    // };
+    useEffect(() => {
+        nameEl.current.value = window.localStorage.getItem('name');
+        emailEl.current.value = window.localStorage.getItem('email')
+    }, []);
 
     const handleCommentSubmission = () => {
         setError(false);
@@ -53,30 +33,21 @@ export default function CommentsForm({ slug }) {
         const commentObj = { name, email, comment, slug };
 
         if (storeData) {
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
+            window.localStorage.setItem('name', name);
+            window.localStorage.setItem('email', email);
         } else {
-            localStorage.removeItem('name');
-            localStorage.removeItem('email');
+            window.localStorage.removeItem('name');
+            window.localStorage.removeItem('email');
         }
 
         submitComment(commentObj)
             .then((res) => {
-                if (res.createComment) {
-                    if (!storeData) {
-                        formData.name = '';
-                        formData.email = '';
-                    }
-                    formData.comment = '';
-                    setFormData((prevState) => ({
-                        ...prevState,
-                        ...formData,
-                    }));
-                    setShowSuccessMessage(true);
-                    setTimeout(() => {
-                        setShowSuccessMessage(false);
-                    }, 3000);
-                }
+                setShowSuccessMessage(true);
+
+                setTimeout(() => {
+                    setShowSuccessMessage(false);
+                }, 3000);
+
             });
     };
 
