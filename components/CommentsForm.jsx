@@ -36,11 +36,14 @@ export default function CommentsForm({ slug }) {
 
     const handlePostSubmission = () => {
         setError(false);
+
         const { name, email, comment, storeData } = formData;
+
         if (!name || !email || !comment) {
             setError(true);
             return;
         }
+
         const commentObj = { name, email, comment, slug };
 
         if (storeData) {
@@ -85,10 +88,10 @@ export default function CommentsForm({ slug }) {
             <div className="grid grid-cols-1 gap-4 mb-4">
                 <div>
                     <input checked={ formData.storeData } onChange={ onInputChange } type="checkbox" id="storeData" name="storeData" value="true" />
-                    <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
+                    <label className="text-gray-500 cursor-pointer ml-2" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
                 </div>
             </div>
-            { error && <p className="text-xs text-red-500">All fields are mandatory</p> }
+            { error && <p className="text-xs text-red-500">All fields are required</p> }
             <div className="mt-8">
                 <button type="button" onClick={ handlePostSubmission } className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-blue-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer">
                     Post Comment

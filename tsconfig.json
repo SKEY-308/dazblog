@@ -32,7 +32,9 @@
     "components/Header.jsx",
     "components/Layout.jsx",
     "components/PostWidget.jsx",
-    "pages/_app.js"
+    "pages/_app.js",
+    "pages/api/comments.js",
+    "pages/api/hello.js"
   ],
   "exclude": [
     "node_modules"
